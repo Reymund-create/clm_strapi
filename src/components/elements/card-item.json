@@ -6,6 +6,12 @@
   },
   "options": {},
   "attributes": {
+    "mainHeading": {
+      "type": "string"
+    },
+    "mainDescription": {
+      "type": "text"
+    },
     "title": {
       "type": "string"
     },

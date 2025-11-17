@@ -8,6 +8,8 @@ export interface ElementsCardItem extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    mainDescription: Schema.Attribute.Text;
+    mainHeading: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
