@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_elements_card_items",
+  "info": {
+    "displayName": "CardItem",
+    "icon": "lightbulb"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

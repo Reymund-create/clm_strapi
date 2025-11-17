@@ -9,11 +9,7 @@
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": false
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string",
@@ -21,6 +17,34 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "heroDescription": {
+      "type": "text"
+    },
+    "mainContent": {
+      "type": "blocks"
+    },
+    "features": {
+      "type": "component",
+      "component": "elements.card-item",
+      "repeatable": true
+    },
+    "process": {
+      "type": "component",
+      "component": "elements.card-item",
+      "repeatable": true
+    },
+    "ctaContent": {
+      "type": "blocks"
+    },
+    "faqs": {
+      "type": "component",
+      "component": "elements.faq-item",
+      "repeatable": true
     }
   }
 }
