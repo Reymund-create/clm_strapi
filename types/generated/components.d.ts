@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ElementsButton extends Struct.ComponentSchema {
+  collectionName: 'components_elements_buttons';
+  info: {
+    displayName: 'button';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean;
+    label: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['link']>;
+  };
+}
+
 export interface ElementsCardItem extends Struct.ComponentSchema {
   collectionName: 'components_elements_card_items';
   info: {
@@ -29,6 +42,7 @@ export interface ElementsFaqItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'elements.button': ElementsButton;
       'elements.card-item': ElementsCardItem;
       'elements.faq-item': ElementsFaqItem;
     }
