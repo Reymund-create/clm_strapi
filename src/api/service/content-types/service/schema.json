@@ -31,7 +31,8 @@
         "elements.faq-item",
         "elements.contact-button",
         "elements.card-item",
-        "elements.button"
+        "elements.button",
+        "elements.background-image"
       ]
     }
   }

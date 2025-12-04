@@ -565,6 +565,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
         'elements.contact-button',
         'elements.card-item',
         'elements.button',
+        'elements.background-image',
       ]
     >;
     slug: Schema.Attribute.UID<'metaTitle'>;
