@@ -1,22 +1,17 @@
 {
   "collectionName": "components_elements_card_items",
   "info": {
-    "displayName": "CardItem",
+    "displayName": "Card",
     "icon": "lightbulb"
   },
   "options": {},
   "attributes": {
-    "mainHeading": {
-      "type": "string"
-    },
-    "mainDescription": {
-      "type": "text"
-    },
-    "title": {
-      "type": "string"
-    },
     "description": {
       "type": "text"
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon"
     }
   },
   "config": {}

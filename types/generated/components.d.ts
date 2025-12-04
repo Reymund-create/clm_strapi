@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ElementsBackgroundImage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_background_images';
+  info: {
+    displayName: 'backgroundImage';
+  };
+  attributes: {
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+  };
+}
+
 export interface ElementsButton extends Struct.ComponentSchema {
   collectionName: 'components_elements_buttons';
   info: {
@@ -16,35 +28,97 @@ export interface ElementsButton extends Struct.ComponentSchema {
 export interface ElementsCardItem extends Struct.ComponentSchema {
   collectionName: 'components_elements_card_items';
   info: {
-    displayName: 'CardItem';
+    displayName: 'Card';
     icon: 'lightbulb';
   };
   attributes: {
     description: Schema.Attribute.Text;
-    mainDescription: Schema.Attribute.Text;
-    mainHeading: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    icon: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<'plugin::icons-field.icon'>;
+  };
+}
+
+export interface ElementsContactButton extends Struct.ComponentSchema {
+  collectionName: 'components_elements_contact_buttons';
+  info: {
+    displayName: 'contactButton';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String;
   };
 }
 
 export interface ElementsFaqItem extends Struct.ComponentSchema {
   collectionName: 'components_elements_faq_items';
   info: {
-    displayName: 'FaqItem';
+    displayName: 'accordion';
     icon: 'lightbulb';
   };
   attributes: {
-    answer: Schema.Attribute.Text;
-    question: Schema.Attribute.String;
+    content: Schema.Attribute.Blocks;
+    isAccordion: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsHeading extends Struct.ComponentSchema {
+  collectionName: 'components_elements_headings';
+  info: {
+    displayName: 'heading';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsImage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_images';
+  info: {
+    displayName: 'image';
+  };
+  attributes: {
+    singleImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+  };
+}
+
+export interface ElementsMultipleImages extends Struct.ComponentSchema {
+  collectionName: 'components_elements_multiple_images';
+  info: {
+    displayName: 'multipleImages';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
+export interface ElementsRichText extends Struct.ComponentSchema {
+  collectionName: 'components_elements_rich_texts';
+  info: {
+    displayName: 'richText';
+  };
+  attributes: {
+    richText: Schema.Attribute.Blocks;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'elements.background-image': ElementsBackgroundImage;
       'elements.button': ElementsButton;
       'elements.card-item': ElementsCardItem;
+      'elements.contact-button': ElementsContactButton;
       'elements.faq-item': ElementsFaqItem;
+      'elements.heading': ElementsHeading;
+      'elements.image': ElementsImage;
+      'elements.multiple-images': ElementsMultipleImages;
+      'elements.rich-text': ElementsRichText;
     }
   }
 }

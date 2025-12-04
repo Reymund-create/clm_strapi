@@ -11,37 +11,28 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "metaTitle"
     },
-    "heroDescription": {
-      "type": "text"
-    },
-    "mainContent": {
-      "type": "blocks"
-    },
-    "features": {
-      "type": "component",
-      "component": "elements.card-item",
-      "repeatable": true
-    },
-    "process": {
-      "type": "component",
-      "component": "elements.card-item",
-      "repeatable": true
-    },
-    "ctaContent": {
-      "type": "blocks"
-    },
-    "faqs": {
-      "type": "component",
-      "component": "elements.faq-item",
-      "repeatable": true
+    "servicePage": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.rich-text",
+        "elements.multiple-images",
+        "elements.image",
+        "elements.heading",
+        "elements.faq-item",
+        "elements.contact-button",
+        "elements.card-item",
+        "elements.button"
+      ]
     }
   }
 }

@@ -546,21 +546,28 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ctaContent: Schema.Attribute.Blocks;
-    faqs: Schema.Attribute.Component<'elements.faq-item', true>;
-    features: Schema.Attribute.Component<'elements.card-item', true>;
-    heroDescription: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::service.service'
     > &
       Schema.Attribute.Private;
-    mainContent: Schema.Attribute.Blocks;
-    process: Schema.Attribute.Component<'elements.card-item', true>;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    servicePage: Schema.Attribute.DynamicZone<
+      [
+        'elements.rich-text',
+        'elements.multiple-images',
+        'elements.image',
+        'elements.heading',
+        'elements.faq-item',
+        'elements.contact-button',
+        'elements.card-item',
+        'elements.button',
+      ]
+    >;
+    slug: Schema.Attribute.UID<'metaTitle'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

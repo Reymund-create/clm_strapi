@@ -1,16 +1,19 @@
 {
   "collectionName": "components_elements_faq_items",
   "info": {
-    "displayName": "FaqItem",
+    "displayName": "accordion",
     "icon": "lightbulb"
   },
   "options": {},
   "attributes": {
-    "question": {
+    "title": {
       "type": "string"
     },
-    "answer": {
-      "type": "text"
+    "content": {
+      "type": "blocks"
+    },
+    "isAccordion": {
+      "type": "boolean"
     }
   },
   "config": {}

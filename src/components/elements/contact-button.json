@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_contact_buttons",
+  "info": {
+    "displayName": "contactButton"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
