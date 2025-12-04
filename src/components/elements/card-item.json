@@ -6,12 +6,19 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "description": {
       "type": "text"
     },
     "icon": {
       "type": "customField",
-      "customField": "plugin::icons-field.icon"
+      "customField": "plugin::strapi-plugin-iconhub.iconhub",
+      "options": {
+        "storeIconData": true,
+        "storeIconName": true
+      }
     }
   },
   "config": {}

@@ -33,8 +33,15 @@ export interface ElementsCardItem extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    icon: Schema.Attribute.Text &
-      Schema.Attribute.CustomField<'plugin::icons-field.icon'>;
+    icon: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::strapi-plugin-iconhub.iconhub',
+        {
+          storeIconData: true;
+          storeIconName: true;
+        }
+      >;
+    title: Schema.Attribute.String;
   };
 }
 
