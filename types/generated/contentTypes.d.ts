@@ -467,6 +467,48 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiConfluenceAiConfluenceAi extends Struct.SingleTypeSchema {
+  collectionName: 'confluence_ais';
+  info: {
+    displayName: 'Confluence AI';
+    pluralName: 'confluence-ais';
+    singularName: 'confluence-ai';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    confluencePage: Schema.Attribute.DynamicZone<
+      [
+        'elements.rich-text',
+        'elements.multiple-images',
+        'elements.image',
+        'elements.heading',
+        'elements.faq-item',
+        'elements.contact-button',
+        'elements.card-item',
+        'elements.button',
+        'elements.background-image',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::confluence-ai.confluence-ai'
+    > &
+      Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1312,6 +1354,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::confluence-ai.confluence-ai': ApiConfluenceAiConfluenceAi;
       'api::global.global': ApiGlobalGlobal;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::meet-the-team.meet-the-team': ApiMeetTheTeamMeetTheTeam;
