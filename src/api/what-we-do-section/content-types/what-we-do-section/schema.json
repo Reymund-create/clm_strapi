@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "what_we_do_sections",
+  "info": {
+    "singularName": "what-we-do-section",
+    "pluralName": "what-we-do-sections",
+    "displayName": "whatWeDoSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "blocks"
+    },
+    "card": {
+      "type": "component",
+      "component": "elements.card-item",
+      "repeatable": true
+    }
+  }
+}
