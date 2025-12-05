@@ -45,6 +45,7 @@ export interface ElementsCardItem extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    position: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
