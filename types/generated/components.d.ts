@@ -41,6 +41,10 @@ export interface ElementsCardItem extends Struct.ComponentSchema {
           storeIconName: true;
         }
       >;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     title: Schema.Attribute.String;
   };
 }

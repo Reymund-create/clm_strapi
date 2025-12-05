@@ -19,6 +19,16 @@
         "storeIconData": true,
         "storeIconName": true
       }
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   },
   "config": {}

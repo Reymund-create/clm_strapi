@@ -532,6 +532,48 @@ export interface ApiHeroSectionHeroSection extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiMeetTheTeamMeetTheTeam extends Struct.SingleTypeSchema {
+  collectionName: 'meet_the_teams';
+  info: {
+    displayName: 'Meet The Team';
+    pluralName: 'meet-the-teams';
+    singularName: 'meet-the-team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::meet-the-team.meet-the-team'
+    > &
+      Schema.Attribute.Private;
+    meetTheTeam: Schema.Attribute.DynamicZone<
+      [
+        'elements.rich-text',
+        'elements.multiple-images',
+        'elements.image',
+        'elements.heading',
+        'elements.faq-item',
+        'elements.contact-button',
+        'elements.card-item',
+        'elements.button',
+        'elements.background-image',
+      ]
+    >;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiServiceService extends Struct.CollectionTypeSchema {
   collectionName: 'services';
   info: {
@@ -1272,6 +1314,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::global.global': ApiGlobalGlobal;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
+      'api::meet-the-team.meet-the-team': ApiMeetTheTeamMeetTheTeam;
       'api::service.service': ApiServiceService;
       'api::what-we-do-section.what-we-do-section': ApiWhatWeDoSectionWhatWeDoSection;
       'plugin::content-releases.release': PluginContentReleasesRelease;
