@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "technical_seos",
+  "info": {
+    "singularName": "technical-seo",
+    "pluralName": "technical-seos",
+    "displayName": "Technical SEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "technicalSEO": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.rich-text",
+        "elements.multiple-images",
+        "elements.image",
+        "elements.heading",
+        "elements.faq-item",
+        "elements.contact-button",
+        "elements.card-item",
+        "elements.button",
+        "elements.background-image"
+      ]
+    }
+  }
+}

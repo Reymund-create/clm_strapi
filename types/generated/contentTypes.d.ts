@@ -659,6 +659,48 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTechnicalSeoTechnicalSeo extends Struct.SingleTypeSchema {
+  collectionName: 'technical_seos';
+  info: {
+    displayName: 'Technical SEO';
+    pluralName: 'technical-seos';
+    singularName: 'technical-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::technical-seo.technical-seo'
+    > &
+      Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    technicalSEO: Schema.Attribute.DynamicZone<
+      [
+        'elements.rich-text',
+        'elements.multiple-images',
+        'elements.image',
+        'elements.heading',
+        'elements.faq-item',
+        'elements.contact-button',
+        'elements.card-item',
+        'elements.button',
+        'elements.background-image',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWhatWeDoSectionWhatWeDoSection
   extends Struct.SingleTypeSchema {
   collectionName: 'what_we_do_sections';
@@ -1359,6 +1401,7 @@ declare module '@strapi/strapi' {
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::meet-the-team.meet-the-team': ApiMeetTheTeamMeetTheTeam;
       'api::service.service': ApiServiceService;
+      'api::technical-seo.technical-seo': ApiTechnicalSeoTechnicalSeo;
       'api::what-we-do-section.what-we-do-section': ApiWhatWeDoSectionWhatWeDoSection;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
