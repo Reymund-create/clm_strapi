@@ -489,6 +489,7 @@ export interface ApiConfluenceAiConfluenceAi extends Struct.SingleTypeSchema {
         'elements.card-item',
         'elements.button',
         'elements.background-image',
+        'elements.feature-item',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -605,6 +606,7 @@ export interface ApiMeetTheTeamMeetTheTeam extends Struct.SingleTypeSchema {
         'elements.card-item',
         'elements.button',
         'elements.background-image',
+        'elements.feature-item',
       ]
     >;
     metaDescription: Schema.Attribute.Text;
@@ -693,6 +695,7 @@ export interface ApiTechnicalSeoTechnicalSeo extends Struct.SingleTypeSchema {
         'elements.card-item',
         'elements.button',
         'elements.background-image',
+        'elements.feature-item',
       ]
     >;
     updatedAt: Schema.Attribute.DateTime;
