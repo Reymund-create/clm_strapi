@@ -74,6 +74,25 @@ export interface ElementsFaqItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsFeatureItem extends Struct.ComponentSchema {
+  collectionName: 'components_elements_feature_items';
+  info: {
+    displayName: 'feature-item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::strapi-plugin-iconhub.iconhub',
+        {
+          storeIconData: true;
+          storeIconName: true;
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsHeading extends Struct.ComponentSchema {
   collectionName: 'components_elements_headings';
   info: {
@@ -127,6 +146,7 @@ declare module '@strapi/strapi' {
       'elements.card-item': ElementsCardItem;
       'elements.contact-button': ElementsContactButton;
       'elements.faq-item': ElementsFaqItem;
+      'elements.feature-item': ElementsFeatureItem;
       'elements.heading': ElementsHeading;
       'elements.image': ElementsImage;
       'elements.multiple-images': ElementsMultipleImages;

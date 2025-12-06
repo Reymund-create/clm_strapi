@@ -28,7 +28,8 @@
         "elements.contact-button",
         "elements.card-item",
         "elements.button",
-        "elements.background-image"
+        "elements.background-image",
+        "elements.feature-item"
       ]
     }
   }
