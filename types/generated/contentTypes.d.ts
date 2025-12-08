@@ -510,6 +510,63 @@ export interface ApiConfluenceAiConfluenceAi extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCoreServiceCoreService extends Struct.SingleTypeSchema {
+  collectionName: 'core_services';
+  info: {
+    displayName: 'Core Service';
+    pluralName: 'core-services';
+    singularName: 'core-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cardServices: Schema.Attribute.Component<'elements.card-item', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::core-service.core-service'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqSectionFaqSection extends Struct.SingleTypeSchema {
+  collectionName: 'faq_sections';
+  info: {
+    displayName: 'FAQSection';
+    pluralName: 'faq-sections';
+    singularName: 'faq-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-section.faq-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    questions: Schema.Attribute.Component<'elements.faq-item', true>;
+    text: Schema.Attribute.Blocks;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -720,7 +777,6 @@ export interface ApiWhatWeDoSectionWhatWeDoSection
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heading: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -728,7 +784,7 @@ export interface ApiWhatWeDoSectionWhatWeDoSection
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    subheading: Schema.Attribute.Blocks;
+    text: Schema.Attribute.Blocks;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1400,6 +1456,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::confluence-ai.confluence-ai': ApiConfluenceAiConfluenceAi;
+      'api::core-service.core-service': ApiCoreServiceCoreService;
+      'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::global.global': ApiGlobalGlobal;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::meet-the-team.meet-the-team': ApiMeetTheTeamMeetTheTeam;

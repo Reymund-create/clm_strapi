@@ -1,20 +1,17 @@
 {
   "kind": "singleType",
-  "collectionName": "what_we_do_sections",
+  "collectionName": "core_services",
   "info": {
-    "singularName": "what-we-do-section",
-    "pluralName": "what-we-do-sections",
-    "displayName": "whatWeDoSection"
+    "singularName": "core-service",
+    "pluralName": "core-services",
+    "displayName": "Core Service"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "text": {
-      "type": "blocks"
-    },
-    "card": {
+    "cardServices": {
       "type": "component",
       "component": "elements.card-item",
       "repeatable": true

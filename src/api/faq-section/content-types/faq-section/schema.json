@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "what_we_do_sections",
+  "collectionName": "faq_sections",
   "info": {
-    "singularName": "what-we-do-section",
-    "pluralName": "what-we-do-sections",
-    "displayName": "whatWeDoSection"
+    "singularName": "faq-section",
+    "pluralName": "faq-sections",
+    "displayName": "FAQSection"
   },
   "options": {
     "draftAndPublish": true
@@ -14,9 +14,9 @@
     "text": {
       "type": "blocks"
     },
-    "card": {
+    "questions": {
       "type": "component",
-      "component": "elements.card-item",
+      "component": "elements.faq-item",
       "repeatable": true
     }
   }
