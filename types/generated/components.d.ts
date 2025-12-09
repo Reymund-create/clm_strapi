@@ -50,6 +50,25 @@ export interface ElementsCardItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsCardV2 extends Struct.ComponentSchema {
+  collectionName: 'components_elements_card_v2s';
+  info: {
+    displayName: 'Card V2';
+  };
+  attributes: {
+    Desctription: Schema.Attribute.Blocks;
+    Icon: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::strapi-plugin-iconhub.iconhub',
+        {
+          storeIconData: true;
+          storeIconName: true;
+        }
+      >;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsContactButton extends Struct.ComponentSchema {
   collectionName: 'components_elements_contact_buttons';
   info: {
@@ -144,6 +163,7 @@ declare module '@strapi/strapi' {
       'elements.background-image': ElementsBackgroundImage;
       'elements.button': ElementsButton;
       'elements.card-item': ElementsCardItem;
+      'elements.card-v2': ElementsCardV2;
       'elements.contact-button': ElementsContactButton;
       'elements.faq-item': ElementsFaqItem;
       'elements.feature-item': ElementsFeatureItem;
