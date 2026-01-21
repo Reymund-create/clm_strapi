@@ -107,43 +107,6 @@ export interface AdminApiTokenPermission extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface AdminAuditLog extends Struct.CollectionTypeSchema {
-  collectionName: 'strapi_audit_logs';
-  info: {
-    displayName: 'Audit Log';
-    pluralName: 'audit-logs';
-    singularName: 'audit-log';
-  };
-  options: {
-    draftAndPublish: false;
-    timestamps: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    action: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    date: Schema.Attribute.DateTime & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'admin::audit-log'> &
-      Schema.Attribute.Private;
-    payload: Schema.Attribute.JSON;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    user: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
-  };
-}
-
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -668,6 +631,78 @@ export interface ApiMeetTheTeamMeetTheTeam extends Struct.SingleTypeSchema {
     >;
     metaDescription: Schema.Attribute.Text;
     metaTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPromptGraphAiPromptGraphAi extends Struct.SingleTypeSchema {
+  collectionName: 'prompt_graph_ais';
+  info: {
+    displayName: 'PromptGraph AI';
+    pluralName: 'prompt-graph-ais';
+    singularName: 'prompt-graph-ai';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::prompt-graph-ai.prompt-graph-ai'
+    > &
+      Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
+    promptGraphPage: Schema.Attribute.DynamicZone<
+      [
+        'elements.rich-text',
+        'elements.multiple-images',
+        'elements.image',
+        'elements.heading',
+        'elements.feature-item',
+        'elements.faq-item',
+        'elements.contact-button',
+        'elements.card-v2',
+        'elements.card-item',
+        'elements.button',
+        'elements.background-image',
+      ]
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPromptGraphIntegrationPromptGraphIntegration
+  extends Struct.SingleTypeSchema {
+  collectionName: 'prompt_graph_integrations';
+  info: {
+    displayName: 'promptGraphIntegration';
+    pluralName: 'prompt-graph-integrations';
+    singularName: 'prompt-graph-integration';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::prompt-graph-integration.prompt-graph-integration'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1448,7 +1483,6 @@ declare module '@strapi/strapi' {
     export interface ContentTypeSchemas {
       'admin::api-token': AdminApiToken;
       'admin::api-token-permission': AdminApiTokenPermission;
-      'admin::audit-log': AdminAuditLog;
       'admin::permission': AdminPermission;
       'admin::role': AdminRole;
       'admin::session': AdminSession;
@@ -1461,6 +1495,8 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::meet-the-team.meet-the-team': ApiMeetTheTeamMeetTheTeam;
+      'api::prompt-graph-ai.prompt-graph-ai': ApiPromptGraphAiPromptGraphAi;
+      'api::prompt-graph-integration.prompt-graph-integration': ApiPromptGraphIntegrationPromptGraphIntegration;
       'api::service.service': ApiServiceService;
       'api::technical-seo.technical-seo': ApiTechnicalSeoTechnicalSeo;
       'api::what-we-do-section.what-we-do-section': ApiWhatWeDoSectionWhatWeDoSection;

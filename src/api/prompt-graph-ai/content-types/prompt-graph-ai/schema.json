@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "prompt_graph_ais",
+  "info": {
+    "singularName": "prompt-graph-ai",
+    "pluralName": "prompt-graph-ais",
+    "displayName": "PromptGraph AI"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "promptGraphPage": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.rich-text",
+        "elements.multiple-images",
+        "elements.image",
+        "elements.heading",
+        "elements.feature-item",
+        "elements.faq-item",
+        "elements.contact-button",
+        "elements.card-v2",
+        "elements.card-item",
+        "elements.button",
+        "elements.background-image"
+      ]
+    }
+  }
+}

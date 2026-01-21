@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "prompt_graph_integrations",
+  "info": {
+    "singularName": "prompt-graph-integration",
+    "pluralName": "prompt-graph-integrations",
+    "displayName": "promptGraphIntegration"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
