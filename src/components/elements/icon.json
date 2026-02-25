@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_elements_icons",
+  "info": {
+    "displayName": "icon"
+  },
+  "options": {},
+  "attributes": {
+    "iconData": {
+      "type": "customField",
+      "customField": "plugin::strapi-plugin-iconhub.iconhub",
+      "options": {
+        "storeIconData": true,
+        "storeIconName": true
+      }
+    },
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

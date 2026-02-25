@@ -119,6 +119,25 @@ export interface ElementsHeading extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsIcon extends Struct.ComponentSchema {
+  collectionName: 'components_elements_icons';
+  info: {
+    displayName: 'icon';
+  };
+  attributes: {
+    height: Schema.Attribute.String;
+    iconData: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::strapi-plugin-iconhub.iconhub',
+        {
+          storeIconData: true;
+          storeIconName: true;
+        }
+      >;
+    width: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsImage extends Struct.ComponentSchema {
   collectionName: 'components_elements_images';
   info: {
@@ -128,6 +147,17 @@ export interface ElementsImage extends Struct.ComponentSchema {
     singleImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
+  };
+}
+
+export interface ElementsMetric extends Struct.ComponentSchema {
+  collectionName: 'components_elements_metrics';
+  info: {
+    displayName: 'Metric';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    value: Schema.Attribute.String;
   };
 }
 
@@ -165,7 +195,9 @@ declare module '@strapi/strapi' {
       'elements.faq-item': ElementsFaqItem;
       'elements.feature-item': ElementsFeatureItem;
       'elements.heading': ElementsHeading;
+      'elements.icon': ElementsIcon;
       'elements.image': ElementsImage;
+      'elements.metric': ElementsMetric;
       'elements.multiple-images': ElementsMultipleImages;
       'elements.rich-text': ElementsRichText;
     }

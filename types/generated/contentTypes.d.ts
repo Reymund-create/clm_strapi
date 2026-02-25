@@ -430,6 +430,57 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
+  collectionName: 'case_studies';
+  info: {
+    displayName: 'Case Study';
+    pluralName: 'case-studies';
+    singularName: 'case-study';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    client: Schema.Attribute.String;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'elements.rich-text',
+        'elements.multiple-images',
+        'elements.metric',
+        'elements.image',
+        'elements.icon',
+        'elements.heading',
+        'elements.feature-item',
+        'elements.faq-item',
+        'elements.contact-button',
+        'elements.card-v2',
+        'elements.card-item',
+        'elements.button',
+        'elements.background-image',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Component<'elements.icon', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-study.case-study'
+    > &
+      Schema.Attribute.Private;
+    metrics: Schema.Attribute.Component<'elements.metric', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiConfluenceAiConfluenceAi extends Struct.SingleTypeSchema {
   collectionName: 'confluence_ais';
   info: {
@@ -1489,6 +1540,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::confluence-ai.confluence-ai': ApiConfluenceAiConfluenceAi;
       'api::core-service.core-service': ApiCoreServiceCoreService;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
